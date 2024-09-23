@@ -143,6 +143,13 @@ fastify.get('/api/sessions', async (request, reply) => {
     return sessions;
 });
 
+
+fastify.post('/api/log', async (request, reply) => {
+    const { message } = request.body as { message: string };
+    console.log('Received message:', message);
+    return { status: 'success', message: 'Message logged' };
+});
+
 //fastify.post('/api/send-json', async (request, reply) => {
 //  try {
 //    const result = await sendJsonToPythonServer();
