@@ -20,3 +20,4 @@ query for the timestamp
 SELECT id, topic, message, datetime(timestamp / 1000, 'unixepoch') AS timestamp FROM messages;
 ```
 
+playing git git
