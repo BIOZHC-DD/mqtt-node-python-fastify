@@ -10,9 +10,6 @@ import Fastify from 'fastify';
 import type { FastifyInstance } from 'fastify';
 import { processBioData } from './processBioData.js';
 import { promises as fs } from 'fs';
-//import fs_standard from 'fs';
-//import axios from 'axios';
-//import FormData from 'form-data';
 import { sendJsonToPythonServer } from './sindex.ts';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -150,20 +147,6 @@ fastify.post('/api/log', async (request, reply) => {
     return { status: 'success', message: 'Message logged' };
 });
 
-//fastify.post('/api/send-json', async (request, reply) => {
-//  try {
-//    const result = await sendJsonToPythonServer();
-//    return { success: true, message: 'JSON sent successfully', result };
-//  } catch (error) {
-//    console.error('Error sending JSON:', error);
-//    reply.status(500).send({ success: false, message: 'Error sending JSON' });
-//  }
-//});
-//
-//
-//
-//
-
 
 fastify.post('/api/send-json', async (request, reply) => {
     try {
@@ -182,17 +165,6 @@ fastify.post('/api/send-json', async (request, reply) => {
     }
 });
 
-//fastify.post('/send_json', async (request, reply) => {
-//  const jsonData = request.body;
-//
-//  try {
-//    const response = await axios.post('http://localhost:5000/receive_json', jsonData);
-//    return { status: 'success', message: 'JSON data sent successfully' };
-//  } catch (error) {
-//    fastify.log.error(error);
-//    return { status: 'error', message: 'Failed to send JSON data' };
-//  }
-//});
 
 
 fastify.get('/', async (request, reply) => {
